@@ -1,0 +1,2 @@
+# SilentSpotifyAdsMac
+Mute Spotify ads
