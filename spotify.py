@@ -7,3 +7,6 @@ def get_curr_track(token):
 def get_curr_track_type(token):
 	sp = spotipy.Spotify(token)
 	return sp.current_playback()
+
+def calc_track_end_time(remaining_ms, track_type):
+	print("remaining ms: " + str(remaining_ms) + " for track: " +track_type)

@@ -1,14 +1,15 @@
 import sys
 import json
 from auth import *
-from track_info import *
+from spotify import *
 
 token = ""
 
 
 def run(token):
-	curr_track = get_curr_track(token)
+	curr_track = get_curr_track(token) # currently_playing_type
 	print(curr_track)
+	print("\n")
 	track_type = get_curr_track_type(token)
 	print(track_type)
 	print("DONE")

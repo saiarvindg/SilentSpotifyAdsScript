@@ -11,7 +11,7 @@ client_id = os.getenv("SPOTIPY_CLIENT_ID")
 client_secret = os.getenv("SPOTIPY_CLIENT_SECRET")
 username = os.getenv("USERNAME")
 redirect_url = os.getenv("SPOTIPY_REDIRECT_URI")
-scope = 'user-read-currently-playing user-modify-playback-state'
+scope = 'user-read-currently-playing user-modify-playback-state user-read-playback-state'
 
 def check_env_set():
 	return client_id and client_secret and username and redirect_url
