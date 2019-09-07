@@ -16,11 +16,13 @@ def run(token):
 	print("Getting currently playing track...")
 	result, curr_track = get_curr_track(token)  # currently_playing_type
 	if result:
+		setup_stored_vol()
 		track_type = curr_track["currently_playing_type"]
 		curr_progress = curr_track["progress_ms"]
 		if track_type == "track":
 			# song
-			set_curr_volume(75)  # TODO: get the current volume and set it to that
+			vol_restored = restore_vol()
+			print(f"Restoring volume {vol_restored}")
 			song = curr_track["item"]["name"]
 			artists = [item["name"]
                             for item in curr_track["item"]["artists"] if item["name"]]
@@ -33,8 +35,8 @@ def run(token):
 		elif track_type == "ad":
 			# ad
 			print(
-				f"currenty playing an ad for lasting for {ad_length - curr_progress} ms. Spotify will be muted for the duration")
-			set_curr_volume(0)  # TODO: save the current volume
+				f"currenty playing an ad for lasting for {ad_length - curr_progress} ms. muting spotify: {mute_vol()}")
+			print(f"saving current volume: {save_curr_vol()}")
 			return (True, calc_track_end_time(ad_length, curr_progress))
 		else:
 			print(

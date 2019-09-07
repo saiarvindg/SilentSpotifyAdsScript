@@ -9,7 +9,7 @@ def get_curr_track(token):
 	
 	return (True, curr_track)
 
-# credit: https://stackoverflow.com/questions/11523918/python-start-a-function-at-given-time
+# see: https://stackoverflow.com/questions/11523918/python-start-a-function-at-given-time
 def calc_track_end_time(total_duration, curr_progress):
 	"""
 	Returns the time the current track will end in seconds
@@ -17,5 +17,5 @@ def calc_track_end_time(total_duration, curr_progress):
 	time_left = total_duration - curr_progress
 	now = datetime.now()
 	run_at = now + timedelta(milliseconds=time_left)
-	delay = (run_at - now).total_seconds()
+	delay = (run_at - now).total_seconds() - 1.0 # - 1.0 to account for delays due to processing/lag
 	return delay

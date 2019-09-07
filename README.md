@@ -12,3 +12,13 @@ Mute Spotify ads
 7) Use AppleScript to set the application volume of Spotify to what it was
 8) Go to step 1
 
+## Special cases to handle:
+- if the user starts spotify muted - then `STORED_VOL` will start out as 0
+- how to set `STORED_VOL` when music first played
+- negative volume issue after ad plays
+
+## TODO (after basic workflow is done):
+- Handling special cases
+- Add logging so print statements are logged to file not stdout
+- Fix print/log statements, grammar/spelling, 
+- Maybe improve code (add constants for equality checks, methods to handle parsing/formatting, fix package imports)
